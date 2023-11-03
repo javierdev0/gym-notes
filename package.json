@@ -1,0 +1,36 @@
+{
+  "name": "template-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "next": "13.5.4",
+    "react-dom": "18.2.0",
+    "react": "18.2.0"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^13.5.4",
+    "@types/node": "^20.8.6",
+    "@types/react-dom": "18.2.13",
+    "@types/react": "18.2.28",
+    "@vercel/style-guide": "^5.0.1",
+    "autoprefixer": "10.4.16",
+    "eslint-config-next": "13.5.4",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint": "8.51.0",
+    "prettier-plugin-tailwindcss": "^0.5.6",
+    "prettier": "^3.0.3",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.2.2",
+    "postcss": "8.4.31",
+    "husky": "^8.0.3"
+  }
+}
