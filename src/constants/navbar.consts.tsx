@@ -6,13 +6,11 @@ import {
   HomeActiveIcon,
   HomeIcon,
   QrCodeActiveIcon,
+  QrCodeIcon,
   UserActiveIcon,
   UserIcon
 } from '@public/icons'
-
 import { Icons } from '@/enums/icons.enum'
-
-import { QrCodeIcon } from '../../public/icons/index'
 
 export const NAVBAR_CONTENT: IconProps[] = [
   {
