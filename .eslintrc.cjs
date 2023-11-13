@@ -75,6 +75,7 @@ module.exports = {
         reservedFirst: true
       }
     ],
+
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-shadow': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -87,6 +88,7 @@ module.exports = {
         ignoreRestSiblings: false,
         argsIgnorePattern: '^_.*?$'
       }
-    ]
+    ],
+    'react/display-name': 'off'
   }
 }
