@@ -6,7 +6,6 @@ import { useSelectedLayoutSegment } from 'next/navigation'
 
 import { Icons } from '@/enums/icons.enum'
 import { NAVBAR_CONTENT } from '@/constants/navbar.consts'
-import { ROUTES } from '@/constants/routes.consts'
 
 import { Icon } from './icon'
 
@@ -26,9 +25,15 @@ export const Navbar = memo((): JSX.Element => {
       <ul className="flex justify-between">
         {NAVBAR_CONTENT.map((content) => (
           <li key={content.tag}>
-            <Link href={ROUTES[content.tag]}>
-              <Icon {...content} isActive={isActive(content.tag)} />
-            </Link>
+            {content.route ? (
+              <Link href={content.route}>
+                <Icon {...content} isActive={isActive(content.tag)} />
+              </Link>
+            ) : (
+              <button type="button">
+                <Icon {...content} isActive={isActive(content.tag)} />
+              </button>
+            )}
           </li>
         ))}
       </ul>
