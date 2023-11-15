@@ -11,26 +11,31 @@ import {
   UserIcon
 } from '@public/icons'
 import { Icons } from '@/enums/icons.enum'
+import { Routes } from '@/enums/routes.enum'
 
 export const NAVBAR_CONTENT: IconProps[] = [
   {
     Icon: ExerciceIcon,
     IconActive: ExerciceActiveIcon,
-    tag: Icons.Exercises
+    tag: Icons.Exercises,
+    route: Routes.Exercises
   },
   {
     Icon: HomeIcon,
     IconActive: HomeActiveIcon,
-    tag: Icons.Home
+    tag: Icons.Home,
+    route: Routes.Home
   },
   {
     Icon: QrCodeIcon,
     IconActive: QrCodeActiveIcon,
-    tag: Icons.Scan
+    tag: Icons.Scan,
+    route: Routes.Scan
   },
   {
     Icon: UserIcon,
     IconActive: UserActiveIcon,
-    tag: Icons.Profile
+    tag: Icons.Profile,
+    route: Routes.Profile
   }
 ]
