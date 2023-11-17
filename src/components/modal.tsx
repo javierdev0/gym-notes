@@ -1,33 +1,29 @@
 'use client'
-import type { ReactNode } from 'react'
 
-import { memo, useState } from 'react'
+import { memo, useContext } from 'react'
 
-export const Modal = memo(
-  ({ title, children }: { title?: string; children: ReactNode }): JSX.Element => {
-    const [isOpen, setIsOpen] = useState<boolean>(true)
+import { ModalContext } from '@/contexts/modal.context'
 
-    return (
-      <>
-        <input
-          aria-label="Close modal"
-          className={`fixed top-0 h-screen w-screen bg-black/20 ${isOpen ? 'block' : 'hidden'}`}
-          type="button"
-          onClick={() => {
-            setIsOpen(false)
-          }}
-        />
+export const Modal = memo((): JSX.Element => {
+  const { content, title, isOpen, closeModal } = useContext(ModalContext)
 
-        <aside
-          className={`absolute bottom-0 h-[50vh] w-screen rounded-t-md border bg-white px-6 py-4 shadow-sm ${
-            isOpen ? '-translate-y-0' : 'translate-y-full'
-          } transition-transform duration-500 ease-in-out`}
-        >
-          <h2 className="text-center">{title}</h2>
+  return (
+    <div className="overflow-hidden">
+      <input
+        aria-label="Close modal"
+        className={`fixed top-0 ${isOpen ? 'block h-full w-full bg-black/20' : 'hidden'}`}
+        type="button"
+        onClick={closeModal}
+      />
 
-          {children}
-        </aside>
-      </>
-    )
-  }
-)
+      <aside
+        className={`fixed bottom-0 z-10 min-h-[20%] w-screen transform rounded-t-md bg-white px-6 py-4 shadow-sm transition-transform duration-300 ease-in-out
+        ${isOpen ? '-translate-y-0' : 'translate-y-full'}`}
+      >
+        <h2 className="mb-2 text-center">{title}</h2>
+
+        {content}
+      </aside>
+    </div>
+  )
+})
