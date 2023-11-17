@@ -3,10 +3,11 @@ import type { Metadata } from 'next'
 
 import { Roboto } from 'next/font/google'
 
-import { Navbar } from '@/components/navbar'
 import { Modal } from '@/components/modal'
+import { ModalProvider } from '@/contexts/modal.context'
+import { FloattingButton } from '@/components/floatting-button'
 
-const robot = Roboto({
+const roboto = Roboto({
   subsets: ['latin'],
   weight: ['400', '700']
 })
@@ -19,10 +20,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
-      <body className={robot.className}>
-        {children}
-        <Navbar />
-        <Modal />
+      <body className={`${roboto.className} min-h-screen w-screen`}>
+        <ModalProvider>
+          {children}
+          {/* <Navbar /> */}
+          <Modal />
+          <FloattingButton />
+        </ModalProvider>
       </body>
     </html>
   )
