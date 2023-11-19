@@ -7,7 +7,7 @@ interface StorageResult<T> {
 
 export function useLocalStorage<T>(key: string, initialValue: T): StorageResult<T> {
   const [localStorageValue, setLocalStorageValue] = useState<T>(() => {
-    if (typeof window === 'undefined') {
+    if (typeof window !== 'undefined') {
       const storedValue = localStorage.getItem(key)
 
       if (storedValue) {
@@ -21,7 +21,7 @@ export function useLocalStorage<T>(key: string, initialValue: T): StorageResult<
   })
 
   const updateValue = (newValue: T) => {
-    if (typeof window === 'undefined') {
+    if (typeof window !== 'undefined') {
       if (!newValue) {
         localStorage.setItem(key, JSON.stringify(initialValue))
       } else {
