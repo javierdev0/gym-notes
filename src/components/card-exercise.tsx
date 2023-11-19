@@ -40,8 +40,8 @@ export const CardExercise = memo(({ exercise }: { exercise: Exercise }): JSX.Ele
         <thead className="border-b border-black/50">
           <tr>
             <th />
-            {exercise.attributes.map((_, index) => (
-              <th key={index}>{index + 1}</th>
+            {exercise.attributes.map(({ id }, index) => (
+              <th key={id}>{index + 1}</th>
             ))}
             <th className="text-right">Total</th>
           </tr>
