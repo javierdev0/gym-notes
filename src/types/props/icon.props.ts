@@ -6,4 +6,6 @@ export interface IconProps {
   IconActive?: MemoExoticComponent<() => JSX.Element>
   tag?: Icons
   isActive?: boolean
+  className?: string
+  classNameContainer?: string
 }
