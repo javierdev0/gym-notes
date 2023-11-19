@@ -7,6 +7,7 @@ export interface Exercise {
 }
 
 export interface ExerciseAttributes {
+  id: string
   repetitions: number
   weight: number
   rest: number

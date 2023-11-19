@@ -4,6 +4,7 @@ import { Fragment, memo, useEffect, useState } from 'react'
 
 import { useModal } from '@/hooks/use-modal'
 import { useExercises } from '@/hooks/use-exercises'
+import { generateUUID } from '@/utils/generate-uuid'
 
 import { Input } from '../input'
 import { ButtonPrimary } from '../button-primary'
@@ -17,6 +18,7 @@ const initialExercise: Exercise = {
   type: 'weight',
   attributes: [
     {
+      id: generateUUID(),
       weight: 0,
       repetitions: 0,
       rest: 0
@@ -122,7 +124,7 @@ export const FormExercise = memo(
         />
 
         {exercise.attributes.map((attribute, index) => (
-          <Fragment key={`serie-${index}`}>
+          <Fragment key={attribute.id}>
             <h3 className="text-center text-base font-bold uppercase text-black">
               Serie {index + 1}
             </h3>
