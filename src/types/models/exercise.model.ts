@@ -1,6 +1,12 @@
 export interface Exercise {
+  id: string
   name: string
-  serie: number
+  type: string
+  date: string
+  attributes: ExerciseAttributes[]
+}
+
+export interface ExerciseAttributes {
   repetitions: number
   weight: number
   rest: number
