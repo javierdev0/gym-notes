@@ -75,7 +75,7 @@ module.exports = {
         reservedFirst: true
       }
     ],
-
+    'react-hooks/exhaustive-deps': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-shadow': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
