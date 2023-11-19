@@ -5,7 +5,7 @@ import { memo } from 'react'
 export const Input = memo(
   (
     props: DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> & {
-      label: string
+      label?: string
     }
   ): JSX.Element => {
     return (
@@ -13,7 +13,7 @@ export const Input = memo(
         {props.label ? <p className="text-sm">{props.label}</p> : null}
         <input
           {...props}
-          className="mt-1 w-full rounded-md border-2 border-black bg-transparent px-4 py-2 text-sm"
+          className={`mt-1 w-full rounded-md border-2 border-black bg-transparent px-4 py-2 text-sm ${props.className}`}
         />
       </label>
     )
