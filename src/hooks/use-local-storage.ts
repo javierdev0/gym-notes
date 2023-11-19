@@ -7,23 +7,29 @@ interface StorageResult<T> {
 
 export function useLocalStorage<T>(key: string, initialValue: T): StorageResult<T> {
   const [localStorageValue, setLocalStorageValue] = useState<T>(() => {
-    const storedValue = localStorage.getItem(key)
+    if (typeof window === 'undefined') {
+      const storedValue = localStorage.getItem(key)
 
-    if (storedValue) {
-      return JSON.parse(storedValue) as T
+      if (storedValue) {
+        return JSON.parse(storedValue) as T
+      } else {
+        return initialValue
+      }
     } else {
       return initialValue
     }
   })
 
   const updateValue = (newValue: T) => {
-    if (!newValue) {
-      localStorage.setItem(key, JSON.stringify(initialValue))
-    } else {
-      localStorage.setItem(key, JSON.stringify(newValue))
-    }
+    if (typeof window === 'undefined') {
+      if (!newValue) {
+        localStorage.setItem(key, JSON.stringify(initialValue))
+      } else {
+        localStorage.setItem(key, JSON.stringify(newValue))
+      }
 
-    setLocalStorageValue(newValue)
+      setLocalStorageValue(newValue)
+    }
   }
 
   return { localStorageValue, setLocalStorageValue: updateValue }
