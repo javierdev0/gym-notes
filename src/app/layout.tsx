@@ -6,6 +6,7 @@ import { Roboto } from 'next/font/google'
 import { Modal } from '@/components/modal'
 import { ModalProvider } from '@/contexts/modal.context'
 import { FloattingButton } from '@/components/floatting-button'
+import { ViewLarge } from '@/components/view-large'
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -22,8 +23,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="es">
       <body className={`${roboto.className} min-h-screen w-screen`}>
         <ModalProvider>
-          {children}
-          {/* <Navbar /> */}
+          <ViewLarge>
+            <main>{children}</main>
+          </ViewLarge>
           <Modal />
           <FloattingButton />
         </ModalProvider>
