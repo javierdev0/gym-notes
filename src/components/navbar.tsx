@@ -10,21 +10,15 @@ import {
   ExerciceIcon,
   HomeActiveIcon,
   HomeIcon,
-  QrCodeActiveIcon,
-  QrCodeIcon,
   UserActiveIcon,
   UserIcon
 } from '@public/icons'
-import { Routes } from '@/enums/routes.enum'
-
-import { useModal } from '../hooks/use-modal'
+import { ROUTES } from '@/constants/routes.const'
 
 import { Icon } from './icon'
-import { ScanQr } from './modals/scan-qr'
 
 export const Navbar = memo((): JSX.Element => {
   const segments = useSelectedLayoutSegment()
-  const { openModalWithContent } = useModal()
 
   const isActive = (tag: Icons): boolean | undefined => {
     const tagLowerCase = tag.toLowerCase()
@@ -38,7 +32,7 @@ export const Navbar = memo((): JSX.Element => {
     <nav className="fixed bottom-0 w-screen border-t border-gray-100 bg-white px-4 py-2">
       <ul className="flex justify-between">
         <li>
-          <Link href={Routes.Exercises}>
+          <Link href={ROUTES.Exercises}>
             <Icon
               Icon={ExerciceIcon}
               IconActive={ExerciceActiveIcon}
@@ -49,7 +43,7 @@ export const Navbar = memo((): JSX.Element => {
         </li>
 
         <li>
-          <Link href={Routes.Home}>
+          <Link href={ROUTES.Home}>
             <Icon
               Icon={HomeIcon}
               IconActive={HomeActiveIcon}
@@ -60,23 +54,7 @@ export const Navbar = memo((): JSX.Element => {
         </li>
 
         <li>
-          <button
-            type="button"
-            onClick={() => {
-              openModalWithContent('Escanea el código QR de tu máquina', <ScanQr />)
-            }}
-          >
-            <Icon
-              Icon={QrCodeIcon}
-              IconActive={QrCodeActiveIcon}
-              isActive={isActive(Icons.Scan)}
-              tag={Icons.Scan}
-            />
-          </button>
-        </li>
-
-        <li>
-          <Link href={Routes.Profile}>
+          <Link href={ROUTES.Profile}>
             <Icon
               Icon={UserIcon}
               IconActive={UserActiveIcon}
