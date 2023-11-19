@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import type { Exercise } from '@/types/models/exercise.model'
 
 import { useLayoutEffect, useState } from 'react'
