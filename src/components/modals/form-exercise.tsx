@@ -164,20 +164,20 @@ export const FormExercise = memo(
                 }}
               />
             </div>
-
-            <Input
-              label="Fecha"
-              name="date"
-              placeholder="10"
-              type="date"
-              value={exercise.date}
-              onChange={handleChange}
-            />
-            <span className="-mt-1 text-[0.65rem] text-orange-500">
-              {error || 'Si no selecciona una fecha, se tomará la fecha actual'}
-            </span>
           </Fragment>
         ))}
+
+        <Input
+          label="Fecha"
+          name="date"
+          placeholder="10"
+          type="date"
+          value={exercise.date}
+          onChange={handleChange}
+        />
+        <span className="-mt-1 text-[0.65rem] text-orange-500">
+          {error || 'Si no selecciona una fecha, se tomará la fecha actual'}
+        </span>
 
         <div className="flex gap-2">
           <ButtonPrimary type="button" onClick={handleAddAttribute}>
