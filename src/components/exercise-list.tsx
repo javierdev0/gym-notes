@@ -3,7 +3,6 @@
 import { memo, useState } from 'react'
 
 import { useExercises } from '@/hooks/use-exercises'
-import { FilterIcon } from '@public/icons'
 
 import { CardExercise } from './card-exercise'
 import { NotExercises } from './not-exercises'
@@ -34,7 +33,7 @@ export const ExerciseList = memo((): JSX.Element => {
 
   return (
     <section className="grid gap-2">
-      {exercises.length === 0 && !keyword && <NotExercises />}
+      {exercises.length === 0 ? !keyword && <NotExercises /> : null}
 
       <div className="flex items-center gap-2">
         <Input
@@ -44,14 +43,10 @@ export const ExerciseList = memo((): JSX.Element => {
           value={keyword}
           onChange={handleSearch}
         />
-        <div className="flex items-center justify-end">
-          <span className="h-[26px] w-[26px]">
-            <FilterIcon />
-          </span>
-        </div>
       </div>
-      {exercises.length > 0 &&
-        exercises.map((exercise) => <CardExercise key={exercise.id} exercise={exercise} />)}
+      {exercises.length > 0
+        ? exercises.map((exercise) => <CardExercise key={exercise.id} exercise={exercise} />)
+        : null}
     </section>
   )
 })
