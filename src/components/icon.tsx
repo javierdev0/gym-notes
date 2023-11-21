@@ -3,7 +3,7 @@ import type { IconProps } from '@/types/props/icon.props'
 import { memo } from 'react'
 
 export const Icon = memo(
-  ({ Icon, tag, isActive, IconActive, className, classNameContainer }: IconProps): JSX.Element => {
+  ({ Icon, isActive, IconActive, className, classNameContainer }: IconProps): JSX.Element => {
     return (
       <span
         className={`flex h-10 w-10 flex-col items-center justify-center text-xs text-primary-color ${classNameContainer}`}
@@ -15,7 +15,6 @@ export const Icon = memo(
         >
           {isActive && IconActive ? <IconActive /> : <Icon />}
         </span>
-        <p>{tag}</p>
       </span>
     )
   }
