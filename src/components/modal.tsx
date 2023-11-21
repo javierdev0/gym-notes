@@ -21,7 +21,6 @@ export const Modal = memo((): JSX.Element => {
         ${isOpen ? '-translate-y-0' : 'translate-y-full'}`}
       >
         <h2 className="mb-2 text-center">{title}</h2>
-
         {content}
       </aside>
     </div>
